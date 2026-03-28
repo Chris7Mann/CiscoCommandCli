@@ -1,0 +1,32 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
+
+.glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(34, 211, 238, 0.1);
+}
+
+.neon-text {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+[x-cloak] {
+    display: none !important;
+}

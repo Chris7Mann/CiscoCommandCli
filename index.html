@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cisco Networking Dashboard: ROAS & Switching Guide</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-900 text-slate-300 font-sans min-h-screen antialiased selection:bg-cyan-500 selection:text-white"
+    x-data="ciscoGuide()">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-cyan-500/20 shadow-lg shadow-cyan-500/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Title -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-400 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect width="20" height="8" x="2" y="14" rx="2" />
+                            <rect width="20" height="8" x="2" y="2" rx="2" />
+                            <line x1="6" x2="6.01" y1="6" y2="6" />
+                            <line x1="6" x2="6.01" y1="18" y2="18" />
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-white tracking-tight hidden sm:block">
+                        Cisco Networking <span class="text-cyan-400 neon-text">Dashboard</span>
+                    </h1>
+                </div>
+
+                <!-- Search -->
+                <div class="flex-1 max-w-md ml-4 sm:ml-8">
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-cyan-500/50 group-focus-within:text-cyan-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input x-model="searchQuery" type="text"
+                            class="block w-full pl-10 pr-3 py-2 border border-slate-700 rounded-lg leading-5 bg-slate-800/50 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm transition-all"
+                            placeholder="Cerca comandi (es. show vlan)...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Welcome Hero -->
+        <div class="text-center space-y-4 py-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                ROAS & Switching <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Guide</span>
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+                Guida tecnica di riferimento rapido per la configurazione di dispositivi di rete Cisco.
+            </p>
+        </div>
+
+        <!-- Sezione 1 & 2 Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Sezione 1: Comandi di Verifica -->
+            <section class="lg:col-span-2 glass-panel rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl">
+                <div class="border-b border-slate-700/50 bg-slate-800/50 px-6 py-4 flex items-center gap-3">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                    <h3 class="text-lg font-semibold text-white">Comandi di Verifica (Show Commands)</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="bg-slate-800/30 text-sm uppercase tracking-wider text-slate-400 border-b border-slate-700/50">
+                                <th class="px-6 py-3 font-medium">Comando</th>
+                                <th class="px-6 py-3 font-medium">Descrizione</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700/30 text-sm">
+                            <template x-for="(cmd, index) in filteredShowCommands" :key="index">
+                                <tr class="hover:bg-slate-800/40 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center gap-3">
+                                            <code
+                                                class="font-mono text-cyan-300 bg-cyan-900/20 px-2 py-1 rounded text-xs border border-cyan-800/30"
+                                                x-text="cmd.command"></code>
+                                            <button @click="copyToClipboard(cmd.command)"
+                                                class="text-slate-500 hover:text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                title="Copia comando">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-300" x-text="cmd.desc"></td>
+                                </tr>
+                            </template>
+                            <tr x-show="filteredShowCommands.length === 0" x-cloak>
+                                <td colspan="2" class="px-6 py-8 text-center text-slate-500">Nessun comando trovato.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sezione 2: Base & Accesso -->
+            <section class="glass-panel rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl flex flex-col">
+                <div class="border-b border-slate-700/50 bg-slate-800/50 px-6 py-4 flex items-center gap-3">
+                    <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-lg font-semibold text-white">Base & Accesso</h3>
+                </div>
+                <div class="p-6 flex-1">
+                    <ul class="space-y-4">
+                        <template x-for="(item, index) in filteredBaseCommands" :key="index">
+                            <li class="flex items-start gap-3">
+                                <div
+                                    class="mt-1 w-2 h-2 rounded-full bg-amber-400/80 shadow-[0_0_8px_rgba(251,191,36,0.6)]">
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <code
+                                            class="font-mono text-amber-300 bg-amber-900/20 px-2 py-0.5 rounded text-xs border border-amber-800/30"
+                                            x-text="item.cmd"></code>
+                                        <button @click="copyToClipboard(item.cmd)"
+                                            class="text-slate-500 hover:text-amber-400 transition-colors" title="Copia">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <p class="text-sm text-slate-400 mt-1" x-text="item.desc"></p>
+                                </div>
+                            </li>
+                        </template>
+                        <li x-show="filteredBaseCommands.length === 0" x-cloak class="text-slate-500 text-sm">
+                            Nessun accesso trovato.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sezione 3: Guida Configurazione VLAN -->
+        <section class="glass-panel rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl relative">
+            <!-- Decorative gradient -->
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"></div>
+
+            <div class="px-6 py-5 border-b border-slate-700/50 bg-slate-800/30 flex items-center gap-3">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                    </path>
+                </svg>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Guida Configurazione VLAN (CISCO)</h3>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-10">
+
+                <!-- Punto A -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        A</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Switch (VLAN & Access)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Creazione della VLAN e assegnazione ad una porta in modalità
+                        access.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# vlan 10
+Switch(config-vlan)# VLAN10 (nameIT_Department)
+<span class="italic text-slate-500">! Assegna la VLAN 10 alla porta fa0/1</span>
+Switch(config)# interface fa0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10</code></pre>
+                        <button
+                            @click="copyToClipboard('vlan 10\nname &quot;VLAN10&quot;\ninterface fa0/1\nswitchport mode access\nswitchport access vlan 10')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Punto B -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        B</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Trunk Switch</h4>
+                    <p class="text-sm text-slate-400 mb-4">Configurazione dell'interfaccia verso il router o altri
+                        switch in modalità Trunk.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>switchport mode trunk
+switchport trunk allowed vlan 10,20</code></pre>
+                        <button @click="copyToClipboard('switchport mode trunk\nswitchport trunk allowed vlan 10,20')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md flex gap-3">
+                        <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-sm text-blue-200">
+                            <strong class="font-semibold text-white">Nota Importante:</strong> Quando ci sono più switch
+                            nel router on a stick,devi mettere sempre le porte che
+                            collegano i vari switch fra loro in trunk e quando ci sarà la ridondanza con tanti switch su
+                            cui passano i pacchetti
+                            devi creare su tutti gli switch le varie vlan (anche se non colleghi nessuna porta delle
+                            vlan interessate su quello switch)
+                            altrimenti scarterebbe i pacchetti che gli arrivano di quelle vlan se non le crei sopra
+                            ognuno di loro.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Punto C -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        C</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Verifica Configurazione</h4>
+                    <p class="text-sm text-slate-400 mb-4">Verifichiamo le configurazioni delle VLAN.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch# show vlan brief
+Switch# show interfaces fa0/1 switchport</code></pre>
+                        <button @click="copyToClipboard('show vlan brief\nshow interfaces fa0/1 switchport')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Punto D -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        D</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Router (Subinterfaces)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Attivazione dell'interfaccia fisica e configurazione delle
+                        sotto-interfacce con incapsulamento 802.1Q.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre class="font-mono text-sm text-emerald-300 overflow-x-auto whitespace-pre-wrap"><code>interface GigabitEthernet0/0<span class="italic text-slate-500"> ! Attiva l'interfaccia fisica</span>
+no shutdown <span class="italic text-slate-500">! accende la porta</span>
+exit
+
+Router(config)# interface gig0/1.10 <span class="italic text-slate-500">! sarebbe la porta del router + l'id delle vlan</span>
+Router(config-if)# encapsulation dot1Q 10 <span class="italic text-slate-500">! dice al router di incapsulare il traffico con il tag 10</span>
+Router(config-if)# ip address 192.168.0.1 255.255.255.240 <span class="italic text-slate-500">! assegna l'indirizzo ip alla sub-interfaccia</span>
+Router(config-if)# no shutdown <span class="italic text-slate-500">! accende la porta</span></code></pre>
+                        <button
+                            @click="copyToClipboard('interface GigabitEthernet0/0\nno shutdown\n\ninterface gig0/1.10\nencapsulation dot1Q 10\nip address 192.168.0.1 255.255.255.240')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Punto E -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        E</div>
+
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Verifica Configurazione sul Router</h4>
+                    <p class="text-sm text-slate-400 mb-4">Verifichiamo le configurazioni del router.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre
+                            class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Router# show ip interface brief</code></pre>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione 4: Manutenzione & Rimozione -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                    </path>
+                </svg>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Manutenzione & Rimozione</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="glass-panel rounded-xl p-6 border border-rose-900/30 hover:border-rose-500/50 transition-colors group">
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-rose-400 mb-3">Cancella VLAN</h4>
+                    <div
+                        class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50">
+                        <code class="font-mono text-sm text-slate-300">no int vlan 101</code>
+                        <button @click="copyToClipboard('no int vlan 101')"
+                            class="text-slate-500 hover:text-white transition-colors" title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="glass-panel rounded-xl p-6 border border-rose-900/30 hover:border-rose-500/50 transition-colors group">
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-rose-400 mb-3">Cancella Subinterface
+                    </h4>
+                    <div
+                        class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50">
+                        <code class="font-mono text-sm text-slate-300">no interface FastEthernet0/0.10</code>
+                        <button @click="copyToClipboard('no interface FastEthernet0/0.10')"
+                            class="text-slate-500 hover:text-white transition-colors" title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="glass-panel rounded-xl p-6 border border-rose-900/30 hover:border-rose-500/50 transition-colors group">
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-rose-400 mb-3">Levare IP</h4>
+                    <div class="bg-[#0b1120] p-3 rounded-md border border-slate-700/50 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <code class="font-mono text-sm text-slate-300">no ip address</code>
+                            <button @click="copyToClipboard('no ip address')"
+                                class="text-slate-500 hover:text-white transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <code class="font-mono text-sm text-slate-300">shutdown</code>
+                            <button @click="copyToClipboard('shutdown')"
+                                class="text-slate-500 hover:text-white transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-800">
+            <p>Cisco Networking Dashboard &middot; Realizzato per referenza rapida</p>
+        </footer>
+
+    </main>
+
+    <!-- Toast Notification for Copy -->
+    <div x-show="showToast" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform translate-y-2"
+        x-transition:enter-end="opacity-100 transform translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 transform translate-y-0"
+        x-transition:leave-end="opacity-0 transform translate-y-2" x-cloak
+        class="fixed bottom-4 right-4 bg-cyan-500 text-white px-4 py-3 rounded-lg shadow-lg shadow-cyan-500/30 flex items-center gap-2 z-50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="font-medium text-sm">Copiato negli appunti!</span>
+    </div>
+
+    <!-- Script Application Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
