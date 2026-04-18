@@ -700,7 +700,9 @@ Router(config-router)# network 20.0.0.0 0.0.0.255 area 0</code></pre>
 
             <div class="px-6 py-5 border-b border-slate-700/50 bg-slate-800/30 flex items-center gap-3">
                 <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
                 </svg>
                 <h3 class="text-2xl font-bold text-white tracking-tight">Subnetting VLSM & DHCP</h3>
             </div>
@@ -709,12 +711,16 @@ Router(config-router)# network 20.0.0.0 0.0.0.255 area 0</code></pre>
 
                 <!-- Scenario -->
                 <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md flex gap-3 mb-6">
-                    <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div>
                         <p class="text-sm text-blue-200 mb-2">
-                            <strong class="font-semibold text-white">Scenario VLSM:</strong> Ti è stato assegnato l'indirizzo di rete <code class="bg-blue-900/50 px-1 rounded">192.168.10.0 /24</code>. Devi creare tre sottoreti per i seguenti dipartimenti:
+                            <strong class="font-semibold text-white">Scenario VLSM:</strong> Ti è stato assegnato
+                            l'indirizzo di rete <code class="bg-blue-900/50 px-1 rounded">192.168.10.0 /24</code>. Devi
+                            creare tre sottoreti per i seguenti dipartimenti:
                         </p>
                         <ul class="text-sm text-blue-200 list-disc ml-5 space-y-1">
                             <li><strong class="text-white">Vendite:</strong> 100 host</li>
@@ -726,16 +732,20 @@ Router(config-router)# network 20.0.0.0 0.0.0.255 area 0</code></pre>
 
                 <!-- Punto A -->
                 <div class="relative pl-8 sm:pl-12 mb-10">
-                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">A</div>
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        A</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Calcolo delle Sottoreti (VLSM)</h4>
-                    <p class="text-sm text-slate-400 mb-4">Per ottimizzare lo spazio, useremo il VLSM (Variable Length Subnet Mask):</p>
-                    
+                    <p class="text-sm text-slate-400 mb-4">Per ottimizzare lo spazio, useremo il VLSM (Variable Length
+                        Subnet Mask):</p>
+
                     <div class="overflow-x-auto bg-[#0b1120] rounded-lg border border-slate-700/50">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-slate-800/30 text-sm uppercase tracking-wider text-slate-400 border-b border-slate-700/50">
+                                <tr
+                                    class="bg-slate-800/30 text-sm uppercase tracking-wider text-slate-400 border-b border-slate-700/50">
                                     <th class="px-4 py-3 font-medium text-nowrap">Dipartimento</th>
                                     <th class="px-4 py-3 font-medium text-nowrap">Host necessari</th>
                                     <th class="px-4 py-3 font-medium text-nowrap">CIDR</th>
@@ -776,13 +786,18 @@ Router(config-router)# network 20.0.0.0 0.0.0.255 area 0</code></pre>
 
                 <!-- Punto B -->
                 <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">B</div>
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        B</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Configurazione del Router (Gateway)</h4>
-                    <p class="text-sm text-slate-400 mb-4">Dobbiamo assegnare ai &quot;Gateway&quot; (le porte del router) il primo indirizzo utile di ogni sottorete. Clicca sul Router, vai nella scheda CLI e digita:</p>
+                    <p class="text-sm text-slate-400 mb-4">Dobbiamo assegnare ai &quot;Gateway&quot; (le porte del
+                        router) il primo indirizzo utile di ogni sottorete. Clicca sul Router, vai nella scheda CLI e
+                        digita:</p>
 
-                    <div class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
                         <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Router> enable
 Router# configure terminal
 
@@ -802,9 +817,14 @@ Router(config-if)# exit
 Router(config)# interface GigabitEthernet0/2
 Router(config-if)# ip address 192.168.10.193 255.255.255.224
 Router(config-if)# no shutdown</code></pre>
-                        <button @click="copyToClipboard('enable\nconfigure terminal\ninterface GigabitEthernet0/0\nip address 192.168.10.1 255.255.255.128\nno shutdown\nexit\ninterface GigabitEthernet0/1\nip address 192.168.10.129 255.255.255.192\nno shutdown\nexit\ninterface GigabitEthernet0/2\nip address 192.168.10.193 255.255.255.224\nno shutdown')" class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2" title="Copia">
+                        <button
+                            @click="copyToClipboard('enable\nconfigure terminal\ninterface GigabitEthernet0/0\nip address 192.168.10.1 255.255.255.128\nno shutdown\nexit\ninterface GigabitEthernet0/1\nip address 192.168.10.129 255.255.255.192\nno shutdown\nexit\ninterface GigabitEthernet0/2\nip address 192.168.10.193 255.255.255.224\nno shutdown')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
                             </svg>
                         </button>
                     </div>
@@ -812,13 +832,17 @@ Router(config-if)# no shutdown</code></pre>
 
                 <!-- Punto C -->
                 <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">C</div>
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        C</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Configurazione DHCP sul Router</h4>
-                    <p class="text-sm text-slate-400 mb-4">Escluderemo i primi indirizzi di ogni subnet (che usiamo per i gateway o server statici) per evitare che il DHCP li assegni ai PC.</p>
+                    <p class="text-sm text-slate-400 mb-4">Escluderemo i primi indirizzi di ogni subnet (che usiamo per
+                        i gateway o server statici) per evitare che il DHCP li assegni ai PC.</p>
 
-                    <div class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
                         <pre class="font-mono text-sm text-emerald-300 overflow-x-auto whitespace-pre-wrap"><code>Router> enable
 Router# configure terminal
 
@@ -846,9 +870,14 @@ Router(config)# ip dhcp pool AMMINISTRAZIONE
 Router(dhcp-config)# network 192.168.10.192 255.255.255.224
 Router(dhcp-config)# default-router 192.168.10.193
 Router(dhcp-config)# exit</code></pre>
-                        <button @click="copyToClipboard('enable\nconfigure terminal\nip dhcp excluded-address 192.168.10.1 192.168.10.10\nip dhcp pool VENDITE\nnetwork 192.168.10.0 255.255.255.128\ndefault-router 192.168.10.1\ndns-server 8.8.8.8\nexit\nip dhcp excluded-address 192.168.10.129 192.168.10.138\nip dhcp pool TECNICO\nnetwork 192.168.10.128 255.255.255.192\ndefault-router 192.168.10.129\nexit\nip dhcp excluded-address 192.168.10.193 192.168.10.202\nip dhcp pool AMMINISTRAZIONE\nnetwork 192.168.10.192 255.255.255.224\ndefault-router 192.168.10.193\nexit')" class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2" title="Copia">
+                        <button
+                            @click="copyToClipboard('enable\nconfigure terminal\nip dhcp excluded-address 192.168.10.1 192.168.10.10\nip dhcp pool VENDITE\nnetwork 192.168.10.0 255.255.255.128\ndefault-router 192.168.10.1\ndns-server 8.8.8.8\nexit\nip dhcp excluded-address 192.168.10.129 192.168.10.138\nip dhcp pool TECNICO\nnetwork 192.168.10.128 255.255.255.192\ndefault-router 192.168.10.129\nexit\nip dhcp excluded-address 192.168.10.193 192.168.10.202\nip dhcp pool AMMINISTRAZIONE\nnetwork 192.168.10.192 255.255.255.224\ndefault-router 192.168.10.193\nexit')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
                             </svg>
                         </button>
                     </div>
@@ -856,58 +885,85 @@ Router(dhcp-config)# exit</code></pre>
 
                 <!-- Punto D -->
                 <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">D</div>
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        D</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Abilitare il DHCP sui PC</h4>
-                    <p class="text-sm text-slate-400 mb-4">Ora non devi più scrivere nulla nelle impostazioni dei PC:</p>
+                    <p class="text-sm text-slate-400 mb-4">Ora non devi più scrivere nulla nelle impostazioni dei PC:
+                    </p>
                     <ul class="text-sm text-slate-400 mb-4 space-y-2 list-disc ml-5">
                         <li>Clicca su un PC.</li>
                         <li>Vai in <strong class="text-cyan-300">Desktop &gt; IP Configuration</strong>.</li>
                         <li>Seleziona il pulsante radio <strong class="text-cyan-300">DHCP</strong>.</li>
-                        <li>Attendi un istante: dovresti vedere apparire <span class="text-emerald-400 italic">&quot;DHCP request successful&quot;</span> e i campi compilarsi automaticamente con l'IP, la Subnet Mask e il Gateway corretti.</li>
+                        <li>Attendi un istante: dovresti vedere apparire <span
+                                class="text-emerald-400 italic">&quot;DHCP request successful&quot;</span> e i campi
+                            compilarsi automaticamente con l'IP, la Subnet Mask e il Gateway corretti.</li>
                     </ul>
                 </div>
 
                 <!-- Punto E -->
                 <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">E</div>
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        E</div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Comandi di Verifica</h4>
-                    <p class="text-sm text-slate-400 mb-4">Per controllare che il router stia effettivamente lavorando bene, usa questi comandi in modalità enable:</p>
+                    <p class="text-sm text-slate-400 mb-4">Per controllare che il router stia effettivamente lavorando
+                        bene, usa questi comandi in modalità enable:</p>
 
                     <div class="space-y-4 mb-6">
-                        <div class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50 group">
+                        <div
+                            class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50 group">
                             <div>
                                 <code class="font-mono text-sm text-slate-300">show ip dhcp binding</code>
-                                <p class="text-xs text-slate-500 mt-1">Mostra l'elenco dei PC che hanno ricevuto un indirizzo IP e il loro indirizzo MAC.</p>
+                                <p class="text-xs text-slate-500 mt-1">Mostra l'elenco dei PC che hanno ricevuto un
+                                    indirizzo IP e il loro indirizzo MAC.</p>
                             </div>
-                            <button @click="copyToClipboard('show ip dhcp binding')" class="text-slate-500 hover:text-white transition-colors opacity-0 group-hover:opacity-100" title="Copia">
+                            <button @click="copyToClipboard('show ip dhcp binding')"
+                                class="text-slate-500 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                                title="Copia">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                    </path>
                                 </svg>
                             </button>
                         </div>
 
-                        <div class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50 group">
+                        <div
+                            class="flex items-center justify-between bg-[#0b1120] p-3 rounded-md border border-slate-700/50 group">
                             <div>
                                 <code class="font-mono text-sm text-slate-300">show ip dhcp pool</code>
-                                <p class="text-xs text-slate-500 mt-1">Ti dice quanti indirizzi sono rimasti liberi in ogni pool.</p>
+                                <p class="text-xs text-slate-500 mt-1">Ti dice quanti indirizzi sono rimasti liberi in
+                                    ogni pool.</p>
                             </div>
-                            <button @click="copyToClipboard('show ip dhcp pool')" class="text-slate-500 hover:text-white transition-colors opacity-0 group-hover:opacity-100" title="Copia">
+                            <button @click="copyToClipboard('show ip dhcp pool')"
+                                class="text-slate-500 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                                title="Copia">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                    </path>
                                 </svg>
                             </button>
                         </div>
                     </div>
 
                     <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md flex gap-3">
-                        <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <p class="text-sm text-blue-200">
-                            <strong class="font-semibold text-white">Un piccolo trucco:</strong> Se in futuro deciderai di usare un server dedicato (l'oggetto "Server" in Packet Tracer) invece del router per il DHCP, ricordati che sulle interfacce del router dovrai aggiungere il comando <code class="bg-blue-900/50 px-1 rounded text-cyan-300">ip helper-address [IP_DEL_SERVER]</code>, altrimenti i messaggi broadcast del DHCP non riusciranno a passare da una sottorete all'altra.
+                            <strong class="font-semibold text-white">Un piccolo trucco:</strong> Se in futuro deciderai
+                            di usare un server dedicato (l'oggetto "Server" in Packet Tracer) invece del router per il
+                            DHCP, ricordati che sulle interfacce del router dovrai aggiungere il comando <code
+                                class="bg-blue-900/50 px-1 rounded text-cyan-300">ip helper-address [IP_DEL_SERVER]</code>,
+                            altrimenti i messaggi broadcast del DHCP non riusciranno a passare da una sottorete
+                            all'altra.
                         </p>
                     </div>
 
@@ -916,7 +972,256 @@ Router(dhcp-config)# exit</code></pre>
             </div>
         </section>
 
-        <!-- Sezione 7: Manutenzione & Rimozione -->
+        <!-- Sezione 7: Configurazione STP e RSTP (Rapid) -->
+        <section class="glass-panel rounded-xl border border-slate-700/50 overflow-hidden shadow-2xl relative">
+            <!-- Decorative gradient -->
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"></div>
+
+            <div class="px-6 py-5 border-b border-slate-700/50 bg-slate-800/30 flex items-center gap-3">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Configurazione STP e RSTP (Rapid)</h3>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-10">
+
+                <!-- Introduzione -->
+                <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md flex gap-3 mb-6">
+                    <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-sm text-blue-200">
+                        Nella maggior parte degli switch moderni, STP è attivo di default, quindi spesso il lavoro
+                        dell'amministratore consiste nell'ottimizzarlo per assicurarsi che lo switch più potente diventi
+                        il centro della rete.
+                    </p>
+                </div>
+
+                <!-- Punto A -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        A</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Selezione del Root Bridge (Priorità)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Per evitare che uno switch vecchio o lento venga eletto come
+                        "capo" della rete (Root Bridge), devi forzare la priorità. La priorità di default è <strong
+                            class="text-white">32768</strong>. Più basso è il valore, più alta è la priorità.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code><span class="italic text-slate-500"># Entra in configurazione</span>
+Switch# configure terminal
+<span class="italic text-slate-500"># Imposta lo switch come Root Bridge per la VLAN 1</span>
+Switch(config)# spanning-tree vlan 1 priority 4096</code></pre>
+                        <button @click="copyToClipboard('configure terminal\nspanning-tree vlan 1 priority 4096')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-r-md flex gap-3">
+                        <svg class="h-6 w-6 text-amber-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <p class="text-sm text-amber-200">
+                            <strong class="font-semibold text-white">Nota:</strong> I valori devono essere multipli di
+                            4096.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Punto B -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        B</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Come decidere la priorità (Topologia)</h4>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Non basarti mai sul caso. Se lasci il default (<strong class="text-white">32768</strong>) su
+                        tutti, lo switch con il MAC Address più basso vincerà l'elezione. Spesso però il MAC address più
+                        basso appartiene allo switch più vecchio e lento della rete: questo creerebbe un collo di
+                        bottiglia disastroso.
+                    </p>
+                    <p class="text-sm text-slate-400 mb-4">
+                        La tua logica deve essere:
+                    </p>
+                    <ul class="text-sm text-slate-400 mb-4 space-y-2 list-disc ml-5">
+                        <li>Identifica lo switch con la larghezza di banda maggiore (es. quello con porte a 10Gbps) e
+                            assegna priorità <strong class="text-white">4096</strong>.</li>
+                        <li>Identifica lo switch di riserva e assegna priorità <strong class="text-white">8192</strong>.
+                        </li>
+                    </ul>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code><span class="italic text-slate-500"># Se vuoi che lo Switch-A sia il primario:</span>
+Switch(config)# spanning-tree vlan 1 priority 4096
+
+<span class="italic text-slate-500"># Se vuoi che lo Switch-B sia il backup:</span>
+Switch(config)# spanning-tree vlan 1 priority 8192</code></pre>
+                        <button
+                            @click="copyToClipboard('spanning-tree vlan 1 priority 4096\nspanning-tree vlan 1 priority 8192')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md flex gap-3">
+                        <svg class="h-6 w-6 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="text-sm text-blue-200">
+                            <strong class="font-semibold text-white">Trucco Rapido:</strong> Sui sistemi Cisco esiste un
+                            comando scorciatoia che calcola i valori per te senza dover ricordare i multipli di 4096:
+                            <ul class="list-disc ml-5 mt-2 space-y-1">
+                                <li><code
+                                        class="bg-blue-900/50 px-1 rounded text-cyan-300">spanning-tree vlan 1 root primary</code>
+                                    (imposta a 24576 o meno per battere gli altri).</li>
+                                <li><code
+                                        class="bg-blue-900/50 px-1 rounded text-cyan-300">spanning-tree vlan 1 root secondary</code>
+                                    (imposta a 28672).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Punto C -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        C</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Abilitare il protocollo rapido (RSTP)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Il protocollo standard (802.1D) è lento: impiega circa 30-50
+                        secondi per ripristinare un link. Si consiglia quasi sempre di passare a Rapid-PVST+, che
+                        converge in pochi secondi.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code><span class="italic text-slate-500"># Su tutti gli Switch</span>
+Switch(config)# spanning-tree mode rapid-pvst</code></pre>
+                        <button @click="copyToClipboard('spanning-tree mode rapid-pvst')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Punto D -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        D</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione delle porte terminali (PortFast)
+                    </h4>
+                    <p class="text-sm text-slate-400 mb-4">Sulle porte dove colleghi PC, stampanti o server (che non
+                        sono switch e non possono creare loop), devi abilitare PortFast. Questo permette alla porta di
+                        passare immediatamente allo stato "Forwarding" senza attendere i calcoli di STP.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre class="font-mono text-sm text-emerald-300 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# interface gigabitethernet 0/1
+Switch(config-if)# spanning-tree portfast</code></pre>
+                        <button @click="copyToClipboard('interface gigabitethernet 0/1\nspanning-tree portfast')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Punto E -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        E</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Protezione della rete (BPDU Guard)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Se abiliti PortFast, devi proteggere quella porta: se
+                        qualcuno collegasse per errore uno switch a una porta PortFast, potrebbe nascere un loop. BPDU
+                        Guard spegne la porta se riceve un pacchetto STP.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre
+                            class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config-if)# spanning-tree bpduguard enable</code></pre>
+                        <button @click="copyToClipboard('spanning-tree bpduguard enable')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Punto F -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        F</div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Verifica del funzionamento</h4>
+                    <p class="text-sm text-slate-400 mb-4">Per controllare quale switch è il Root Bridge e lo stato
+                        delle porte (se sono in Forwarding o Blocking), usa il comando fondamentale:</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
+                        <pre
+                            class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch# show spanning-tree vlan 1</code></pre>
+                        <button @click="copyToClipboard('show spanning-tree vlan 1')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sezione 8: Manutenzione & Rimozione -->
         <section>
             <div class="flex items-center gap-3 mb-6">
                 <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
