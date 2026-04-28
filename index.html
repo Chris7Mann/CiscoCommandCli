@@ -232,7 +232,7 @@
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
                         <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# vlan 10
-Switch(config-vlan)# VLAN10 (nameIT_Department)
+Switch(config-vlan)# name vlan 10 (nameIT_Department)
 <span class="italic text-slate-500">! Assegna la VLAN 10 alla porta fa0/1</span>
 Switch(config)# interface fa0/1
 Switch(config-if)# switchport mode access
@@ -257,9 +257,8 @@ Switch(config-if)# switchport access vlan 10</code></pre>
                         B</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
-                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Trunk Switch</h4>
-                    <p class="text-sm text-slate-400 mb-4">Configurazione dell'interfaccia verso il router o altri
-                        switch in modalità Trunk.</p>
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione delle interfacce verso altri switch in Trunk</h4>
+                    <p class="text-sm text-slate-400 mb-4">Configurazione dell'interfaccia verso altri switch in modalità Trunk.</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
@@ -378,6 +377,44 @@ Router(config-if)# no shutdown <span class="italic text-slate-500">! accende la 
                     <div
                         class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
                         E</div>
+                    <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
+
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Trunk lato Switch verso il Router</h4>
+                    <p class="text-sm text-slate-400 mb-4">Comandi per mettere in trunk la porta dello switch che si collega al router.</p>
+
+                    <div
+                        class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
+                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# interface fa0/24 <span class="italic text-slate-500">! Esempio porta connessa al router</span>
+Switch(config-if)# switchport mode trunk</code></pre>
+                        <button
+                            @click="copyToClipboard('interface fa0/24\nswitchport mode trunk')"
+                            class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
+                            title="Copia">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-r-md flex gap-3 mb-4">
+                        <svg class="h-6 w-6 text-amber-400 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <p class="text-sm text-amber-200">
+                            <strong class="font-semibold text-white">Attenzione:</strong> Eseguire questa configurazione solo dopo aver attivato l'interfaccia fisica del router con il comando <code class="font-mono bg-amber-900/50 px-1 rounded">no shutdown</code>, per assicurarsi che la porta sia attiva e per evitare bug di sincronizzazione in Packet Tracer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Punto F -->
+                <div class="relative pl-8 sm:pl-12">
+                    <div
+                        class="absolute left-0 top-0 w-8 h-8 rounded-full bg-cyan-900/50 border border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-sm shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        F</div>
 
 
                     <h4 class="text-lg font-semibold text-white mb-2">Verifica Configurazione sul Router</h4>
@@ -1232,7 +1269,8 @@ Switch(config-if)# spanning-tree portfast</code></pre>
                         d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
                     </path>
                 </svg>
-                <h3 class="text-2xl font-bold text-white tracking-tight">Configurazione Link Aggregation Control Protocol (LACP)</h3>
+                <h3 class="text-2xl font-bold text-white tracking-tight">Configurazione Link Aggregation Control
+                    Protocol (LACP)</h3>
             </div>
 
             <div class="p-6 sm:p-8 space-y-10">
@@ -1245,13 +1283,21 @@ Switch(config-if)# spanning-tree portfast</code></pre>
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div class="text-sm text-blue-200">
-                        <p class="mb-2">Nelle architetture di rete gerarchiche (Core, Distribution, Access), il traffico di centinaia di utenti deve passare attraverso un unico link per raggiungere il cuore della rete.</p>
-                        <p class="mb-2"><strong class="font-semibold text-white">Problema:</strong> Se usi un solo cavo e questo si rompe, l'intero settore della rete isolato. Se usi due cavi senza LACP, lo Spanning Tree (STP) ne bloccherà uno per evitare loop.</p>
-                        <p><strong class="font-semibold text-white">Soluzione LACP:</strong> Unisce i link. Se hai 4 link da 1 Gbps, ottieni un "tubo" logico da 4 Gbps e protezione totale: se 3 cavi si rompono, la rete continua a funzionare (più lentamente) sull'unico superstite.</p>
+                        <p class="mb-2">Nelle architetture di rete gerarchiche (Core, Distribution, Access), il traffico
+                            di centinaia di utenti deve passare attraverso un unico link per raggiungere il cuore della
+                            rete.</p>
+                        <p class="mb-2"><strong class="font-semibold text-white">Problema:</strong> Se usi un solo cavo
+                            e questo si rompe, l'intero settore della rete isolato. Se usi due cavi senza LACP, lo
+                            Spanning Tree (STP) ne bloccherà uno per evitare loop.</p>
+                        <p><strong class="font-semibold text-white">Soluzione LACP:</strong> Unisce i link. Se hai 4
+                            link da 1 Gbps, ottieni un "tubo" logico da 4 Gbps e protezione totale: se 3 cavi si
+                            rompono, la rete continua a funzionare (più lentamente) sull'unico superstite.</p>
                     </div>
                 </div>
 
-                <p class="text-sm text-slate-400 mb-4">Per configurare un EtherChannel LACP su Cisco, devi prima selezionare le interfacce fisiche e poi associarle a un'interfaccia logica denominata Port-channel.</p>
+                <p class="text-sm text-slate-400 mb-4">Per configurare un EtherChannel LACP su Cisco, devi prima
+                    selezionare le interfacce fisiche e poi associarle a un'interfaccia logica denominata Port-channel.
+                </p>
 
                 <!-- Punto A -->
                 <div class="relative pl-8 sm:pl-12">
@@ -1261,7 +1307,8 @@ Switch(config-if)# spanning-tree portfast</code></pre>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Selezione delle interfacce fisiche</h4>
-                    <p class="text-sm text-slate-400 mb-4">Supponiamo di voler aggregare le porte GigabitEthernet 0/1 e 0/2.</p>
+                    <p class="text-sm text-slate-400 mb-4">Supponiamo di voler aggregare le porte GigabitEthernet 0/1 e
+                        0/2.</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
@@ -1270,7 +1317,8 @@ Switch(config)# interface range GigabitEthernet 0/1 - 2
 Switch(config-if-range)# channel-protocol lacp
 Switch(config-if-range)# channel-group 1 mode active
 Switch(config-if-range)# exit</code></pre>
-                        <button @click="copyToClipboard('configure terminal\ninterface range GigabitEthernet 0/1 - 2\nchannel-protocol lacp\nchannel-group 1 mode active\nexit')"
+                        <button
+                            @click="copyToClipboard('configure terminal\ninterface range GigabitEthernet 0/1 - 2\nchannel-protocol lacp\nchannel-group 1 mode active\nexit')"
                             class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
                             title="Copia">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1289,8 +1337,11 @@ Switch(config-if-range)# exit</code></pre>
                         B</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
-                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione dell'interfaccia logica (Port-channel)</h4>
-                    <p class="text-sm text-slate-400 mb-4">Una volta creato il gruppo, i parametri di rete (VLAN, Trunk, etc.) vanno configurati sull'interfaccia logica Port-channel 1, non più sulle singole porte fisiche.</p>
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione dell'interfaccia logica
+                        (Port-channel)</h4>
+                    <p class="text-sm text-slate-400 mb-4">Una volta creato il gruppo, i parametri di rete (VLAN, Trunk,
+                        etc.) vanno configurati sull'interfaccia logica Port-channel 1, non più sulle singole porte
+                        fisiche.</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
@@ -1298,7 +1349,8 @@ Switch(config-if-range)# exit</code></pre>
 Switch(config-if)# switchport mode trunk
 Switch(config-if)# switchport trunk allowed vlan 10,20,30
 Switch(config-if)# exit</code></pre>
-                        <button @click="copyToClipboard('interface port-channel 1\nswitchport mode trunk\nswitchport trunk allowed vlan 10,20,30\nexit')"
+                        <button
+                            @click="copyToClipboard('interface port-channel 1\nswitchport mode trunk\nswitchport trunk allowed vlan 10,20,30\nexit')"
                             class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
                             title="Copia">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1318,11 +1370,13 @@ Switch(config-if)# exit</code></pre>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Verifica dello stato</h4>
-                    <p class="text-sm text-slate-400 mb-4">Per assicurarti che il bundle sia attivo (indicato solitamente dalla lettera P per "bundled in port-channel" e U per "in use"), usa il comando:</p>
+                    <p class="text-sm text-slate-400 mb-4">Per assicurarti che il bundle sia attivo (indicato
+                        solitamente dalla lettera P per "bundled in port-channel" e U per "in use"), usa il comando:</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
-                        <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch# show etherchannel summary</code></pre>
+                        <pre
+                            class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch# show etherchannel summary</code></pre>
                         <button @click="copyToClipboard('show etherchannel summary')"
                             class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
                             title="Copia">
@@ -1343,9 +1397,14 @@ Switch(config-if)# exit</code></pre>
 
                     <h4 class="text-lg font-semibold text-white mb-2">Regole d'oro per la configurazione</h4>
                     <ul class="text-sm text-slate-400 mb-4 space-y-2 list-disc ml-5">
-                        <li><strong class="text-cyan-300">Velocità e Duplex:</strong> Devono essere identici su tutte le porte fisiche del gruppo.</li>
-                        <li><strong class="text-cyan-300">VLAN:</strong> Tutte le porte devono appartenere alla stessa VLAN o essere tutte configurate come Trunk con gli stessi parametri (Native VLAN e VLAN permesse).</li>
-                        <li><strong class="text-cyan-300">Spanning Tree:</strong> Il protocollo STP vedrà il Port-channel come un'unica interfaccia, evitando che una delle porte fisiche venga messa in stato "Blocking".</li>
+                        <li><strong class="text-cyan-300">Velocità e Duplex:</strong> Devono essere identici su tutte le
+                            porte fisiche del gruppo.</li>
+                        <li><strong class="text-cyan-300">VLAN:</strong> Tutte le porte devono appartenere alla stessa
+                            VLAN o essere tutte configurate come Trunk con gli stessi parametri (Native VLAN e VLAN
+                            permesse).</li>
+                        <li><strong class="text-cyan-300">Spanning Tree:</strong> Il protocollo STP vedrà il
+                            Port-channel come un'unica interfaccia, evitando che una delle porte fisiche venga messa in
+                            stato "Blocking".</li>
                     </ul>
                 </div>
 
