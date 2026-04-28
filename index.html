@@ -232,7 +232,7 @@
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative">
                         <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# vlan 10
-Switch(config-vlan)# name vlan 10 (nameIT_Department)
+Switch(config-vlan)# name (nameIT_Department)
 <span class="italic text-slate-500">! Assegna la VLAN 10 alla porta fa0/1</span>
 Switch(config)# interface fa0/1
 Switch(config-if)# switchport mode access
@@ -257,8 +257,10 @@ Switch(config-if)# switchport access vlan 10</code></pre>
                         B</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
-                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione delle interfacce verso altri switch in Trunk</h4>
-                    <p class="text-sm text-slate-400 mb-4">Configurazione dell'interfaccia verso altri switch in modalità Trunk.</p>
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione delle interfacce verso altri switch
+                        in Trunk</h4>
+                    <p class="text-sm text-slate-400 mb-4">Configurazione dell'interfaccia verso altri switch in
+                        modalità Trunk.</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
@@ -379,15 +381,16 @@ Router(config-if)# no shutdown <span class="italic text-slate-500">! accende la 
                         E</div>
                     <div class="absolute left-4 top-10 bottom-[-2.5rem] w-px bg-slate-700"></div>
 
-                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Trunk lato Switch verso il Router</h4>
-                    <p class="text-sm text-slate-400 mb-4">Comandi per mettere in trunk la porta dello switch che si collega al router.</p>
+                    <h4 class="text-lg font-semibold text-white mb-2">Configurazione Trunk lato Switch verso il Router
+                    </h4>
+                    <p class="text-sm text-slate-400 mb-4">Comandi per mettere in trunk la porta dello switch che si
+                        collega al router.</p>
 
                     <div
                         class="bg-[#0b1120] rounded-lg p-4 border border-slate-700/50 flex justify-between items-start group relative mb-4">
                         <pre class="font-mono text-sm text-cyan-200 overflow-x-auto whitespace-pre-wrap"><code>Switch(config)# interface fa0/24 <span class="italic text-slate-500">! Esempio porta connessa al router</span>
 Switch(config-if)# switchport mode trunk</code></pre>
-                        <button
-                            @click="copyToClipboard('interface fa0/24\nswitchport mode trunk')"
+                        <button @click="copyToClipboard('interface fa0/24\nswitchport mode trunk')"
                             class="p-2 text-slate-500 hover:text-cyan-400 bg-slate-800 rounded opacity-0 group-hover:opacity-100 transition-all absolute top-2 right-2"
                             title="Copia">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -405,7 +408,10 @@ Switch(config-if)# switchport mode trunk</code></pre>
                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                         <p class="text-sm text-amber-200">
-                            <strong class="font-semibold text-white">Attenzione:</strong> Eseguire questa configurazione solo dopo aver attivato l'interfaccia fisica del router con il comando <code class="font-mono bg-amber-900/50 px-1 rounded">no shutdown</code>, per assicurarsi che la porta sia attiva e per evitare bug di sincronizzazione in Packet Tracer.
+                            <strong class="font-semibold text-white">Attenzione:</strong> Eseguire questa configurazione
+                            solo dopo aver attivato l'interfaccia fisica del router con il comando <code
+                                class="font-mono bg-amber-900/50 px-1 rounded">no shutdown</code>, per assicurarsi che
+                            la porta sia attiva e per evitare bug di sincronizzazione in Packet Tracer.
                         </p>
                     </div>
                 </div>
